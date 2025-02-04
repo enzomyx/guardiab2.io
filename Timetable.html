@@ -1,0 +1,422 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronote</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap">
+    <style>
+        body {
+            background: #eaeef6;
+            font-family: 'Open Sans', sans-serif;
+            transition: background 0.3s ease;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #fff;
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 0;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: background 0.3s ease;
+            z-index: 10;
+        }
+
+        .navbar__link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 3.5rem;
+            width: 5.5rem;
+            color: #6a778e;
+            transition: 250ms ease all;
+            text-decoration: none;
+        }
+
+        .navbar__link span {
+            position: absolute;
+            left: 100%;
+            transform: translate(-3rem);
+            margin-left: 1rem;
+            opacity: 0;
+            pointer-events: none;
+            color: #406ff3;
+            background: #fff;
+            padding: 0.75rem;
+            transition: 250ms ease all;
+            border-radius: 17.5px;
+        }
+
+        .navbar__link:hover {
+            color: #406ff3;
+        }
+
+        .navbar__link:hover i {
+            color: #406ff3;
+        }
+
+        .navbar:not(:hover) .navbar__link:focus,
+        .navbar__link:hover span {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        .navbar__menu {
+            position: relative;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar__item:last-child:before {
+            content: '';
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+            top: 0;
+            left: 1rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            background: #406ff3;
+            border-radius: 17.5px;
+            transition: 250ms cubic-bezier(1, 0.2, 0.1, 1.2) all;
+        }
+
+        @keyframes gooeyEffect-1 {
+            0% {
+                transform: scale(1, 1);
+            }
+            50% {
+                transform: scale(0.5, 1.5);
+            }
+            100% {
+                transform: scale(1, 1);
+            }
+        }
+
+        .navbar__item:first-child:nth-last-child(1),
+        .navbar__item:first-child:nth-last-child(1) ~ li {
+            &:hover ~ li:last-child:before {
+                opacity: 1;
+            }
+
+            &:last-child:hover:before {
+                opacity: 1;
+            }
+
+            &:nth-child(1):hover ~ li:last-child:before {
+                animation: gooeyEffect-1 250ms 1;
+                top: (100% / 1) * (1 - 1);
+            }
+        }
+
+        .navbar__item:last-child:hover:before {
+            animation: gooeyEffect-1 250ms 1;
+            top: (100% / 1) * (1 - 1);
+        }
+
+        .dark-mode {
+            background: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        .dark-mode .navbar {
+            background: #000;
+        }
+
+        .dark-mode .navbar__link {
+            color: #ecf0f1;
+        }
+
+        .dark-mode .navbar__link span {
+            background: #000;
+            color: #ecf0f1;
+        }
+
+        .dark-mode .navbar__link:hover {
+            color: #3498db;
+        }
+
+        .dark-mode .navbar__link:hover i {
+            color: #3498db;
+        }
+
+        .dark-mode .bg-white {
+            background: #34495e;
+        }
+
+        .dark-mode .text-gray-700 {
+            color: #ecf0f1;
+        }
+
+        .dark-mode .border-gray-300 {
+            border-color: #7f8c8d;
+        }
+
+        .dark-mode .bg-pink-200 {
+            background: #e74c3c;
+        }
+
+        .dark-mode .bg-yellow-200 {
+            background: #f1c40f;
+        }
+
+        .dark-mode .bg-green-200 {
+            background: #2ecc71;
+        }
+
+        .dark-mode .bg-red-200 {
+            background: #e74c3c;
+        }
+
+        .dark-mode .bg-gray-200 {
+            background: #95a5a6;
+        }
+
+        @media (max-width: 640px) {
+            .navbar {
+                height: auto;
+                padding-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+  <ul class="navbar__menu">
+    <li class="navbar__item">
+      <a href="Nav.html" class="navbar__link"><i class="fas fa-home"></i><span>Accueil</span></a>
+    </li>
+    <li class="navbar__item">
+      <a href="Timetable.html" class="navbar__link"><i class="fas fa-calendar-check"></i><span>Emplois du temps</span></a>        
+    </li>
+    <li class="navbar__item">
+      <a href="#" class="navbar__link"><i class="fas fa-users"></i><span>Classe</span></a>        
+    </li>
+    <li class="navbar__item">
+      <a href="#" class="navbar__link"><i class="fas fa-folder"></i><span>Projets</span></a>        
+    </li>
+    <li class="navbar__item">
+      <a href="#" class="navbar__link"><i class="fas fa-archive"></i><span>Ressources</span></a>        
+    </li>
+    <li class="navbar__item">
+      <a href="#" class="navbar__link"><i class="fas fa-question-circle"></i><span>Aide</span></a>        
+    </li>
+    <li class="navbar__item mt-auto">
+      <a href="#" class="navbar__link"><i class="fas fa-cog"></i><span>Paramètres</span></a>        
+    </li>
+    <li class="navbar__item">
+      <a href="#" id="darkModeToggle" class="navbar__link"><i class="fas fa-moon"></i><span>Mode Sombre</span></a>
+    </li>
+  </ul>
+</nav>
+<script>
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.toggle('dark-mode');
+    });
+</script>
+<div class="flex ml-24 mt-4">
+    <!-- Main Content -->
+    <div class="w-full p-2">
+        <div class="bg-white p-2 rounded shadow">
+            <div class="flex justify-between items-center mb-2">
+                <button class="text-gray-700 font-semibold" onclick="changeWeek(-1)">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="text-gray-700 font-semibold" id="week-display">Semaine Q1</div>
+                <button class="text-gray-700 font-semibold" onclick="changeWeek(1)">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="text-center text-gray-700 mb-2" id="date-display">du 19/09/2022 au 23/09/2022</div>
+            <div class="grid grid-cols-5 gap-1 text-center text-gray-700 text-xs mb-1">
+                <div id="day-0">lun. 19 sept.</div>
+                <div id="day-1">mar. 20 sept.</div>
+                <div id="day-2">mer. 21 sept.</div>
+                <div id="day-3">jeu. 22 sept.</div>
+                <div id="day-4">ven. 23 sept.</div>
+            </div>
+            <div class="grid grid-cols-5 gap-1 text-center text-gray-700 text-xs">
+                <div class="col-span-1">
+                    <div class="bg-pink-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>08h00 - 09h00</div>
+                        <div>MATHÉMATIQUES 4C</div>
+                    </div>
+                    <div class="bg-pink-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>09h00 - 10h00</div>
+                        <div>MATHÉMATIQUES 4D</div>
+                    </div>
+                    <div class="bg-pink-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>10h00 - 11h00</div>
+                        <div>MATHÉMATIQUES</div>
+                    </div>
+                    <div class="bg-pink-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>11h00 - 12h00</div>
+                        <div>MATHÉMATIQUES</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>12h00 - 13h30</div>
+                    </div>
+                    <div class="bg-green-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>13h30 - 14h30</div>
+                        <div>MATHÉMATIQUES 6D</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>14h30 - 15h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>15h30 - 16h30</div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="bg-yellow-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>08h00 - 09h00</div>
+                        <div>MATHÉMATIQUES 3C 109</div>
+                    </div>
+                    <div class="bg-yellow-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>09h00 - 10h00</div>
+                        <div>MATHÉMATIQUES 4C 109</div>
+                    </div>
+                    <div class="bg-yellow-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>10h00 - 11h00</div>
+                        <div>MATHÉMATIQUES 3B 109 BOUVIER A.</div>
+                    </div>
+                    <div class="bg-green-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>11h00 - 12h00</div>
+                        <div>MATHÉMATIQUES 6D 109</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>12h00 - 13h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>13h30 - 14h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>14h30 - 15h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>15h30 - 16h30</div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="bg-pink-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>08h00 - 09h00</div>
+                        <div>MATHÉMATIQUES 4D 109</div>
+                    </div>
+                    <div class="bg-gray-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>09h00 - 10h00</div>
+                    </div>
+                    <div class="bg-gray-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>10h00 - 11h00</div>
+                    </div>
+                    <div class="bg-yellow-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>11h00 - 12h00</div>
+                        <div>MATHÉMATIQUES 3B 109 BOUVIER A.</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>12h00 - 13h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>13h30 - 14h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>14h30 - 15h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>15h30 - 16h30</div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="bg-green-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>08h00 - 09h00</div>
+                        <div>MATHÉMATIQUES 6D 109</div>
+                    </div>
+                    <div class="bg-gray-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>09h00 - 10h00</div>
+                    </div>
+                    <div class="bg-gray-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>10h00 - 11h00</div>
+                    </div>
+                    <div class="bg-gray-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>11h00 - 12h00</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>12h00 - 13h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>13h30 - 14h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>14h30 - 15h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>15h30 - 16h30</div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="bg-gray-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>08h00 - 09h00</div>
+                    </div>
+                    <div class="bg-gray-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>09h00 - 10h00</div>
+                    </div>
+                    <div class="bg-gray-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>10h00 - 11h00</div>
+                    </div>
+                    <div class="bg-gray-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>11h00 - 12h00</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>12h00 - 13h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>13h30 - 14h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>14h30 - 15h30</div>
+                    </div>
+                    <div class="bg-red-200 p-1 border border-gray-300 h-16 flex flex-col justify-center">
+                        <div>15h30 - 16h30</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let currentWeek = 1;
+    const startDate = new Date('2022-09-19');
+
+    function changeWeek(direction) {
+        currentWeek += direction;
+        const newStartDate = new Date(startDate);
+        newStartDate.setDate(startDate.getDate() + (currentWeek - 1) * 7);
+        updateWeekDisplay(newStartDate);
+    }
+
+    function updateWeekDisplay(date) {
+        const options = { day: '2-digit', month: 'short' };
+        document.getElementById('week-display').innerText = `Semaine Q${currentWeek}`;
+        document.getElementById('date-display').innerText = `du ${date.toLocaleDateString('fr-FR', options)} au ${new Date(date.getTime() + 4 * 24 * 60 * 60 * 1000).toLocaleDateString('fr-FR', options)}`;
+        const days = ['lun.', 'mar.', 'mer.', 'jeu.', 'ven.'];
+        for (let i = 0; i < 5; i++) {
+            document.getElementById(`day-${i}`).innerText = `${days[i]} ${new Date(date.getTime() + i * 24 * 60 * 60 * 1000).toLocaleDateString('fr-FR', options)}`;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateWeekDisplay(startDate);
+    });
+</script>
+</body>
+</html>
