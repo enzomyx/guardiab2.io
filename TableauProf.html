@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau des Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
+        <h1 class="text-2xl font-bold text-center mb-4">Gestion des Notes</h1>
+
+        <form action="{{ url_for('ajouter_note_prof') }}" method="post" class="bg-gray-200 p-4 rounded-lg mb-6">
+            <h2 class="text-lg font-semibold mb-2">Ajouter une Note</h2>
+
+            <label class="block mb-1">Élève :</label>
+            <select name="identifiant" class="w-full p-2 border rounded mb-2">
+                {% for eleve in eleves %}
+                    <option value="{{ eleve[0] }}">{{ eleve[1] }} {{ eleve[2] }}</option>
+                {% endfor %}
+            </select>
+
+            <label class="block mb-1">Matière :</label>
+            <select name="matiere" class="w-full p-2 border rounded mb-2">
+                <option value="Mathématiques">Mathématiques</option>
+                <option value="Français">Français</option>
+                <option value="Histoire">Histoire</option>
+                <option value="Sciences">Sciences</option>
+                <option value="Anglais">Anglais</option>
+            </select>
+
+            <label class="block mb-1">Note :</label>
+            <input type="number" name="note" min="0" max="20" required class="w-full p-2 border rounded mb-2">
+
+            <label class="block mb-1">Trimestre :</label>
+            <select name="trimestre" class="w-full p-2 border rounded mb-2">
+                <option value="Trimestre 1">Trimestre 1</option>
+                <option value="Trimestre 2">Trimestre 2</option>
+                <option value="Trimestre 3">Trimestre 3</option>
+            </select>
+
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+                Ajouter
+            </button>
+        </form>
+
+        <table class="table-auto w-full border-collapse border border-gray-300 bg-white">
+            <thead> 
+                <tr class="bg-gray-100">
+                    <th class="border border-gray-300 px-4 py-2">Élève</th>
+                    <th class="border border-gray-300 px-4 py-2">Matière</th>
+                    <th class="border border-gray-300 px-4 py-2">Trimestre</th>
+                    <th class="border border-gray-300 px-4 py-2">Note</th>
+                    <th class="border border-gray-300 px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for eleve in eleves_notes %}
+                <tr class="hover:bg-gray-50">
+                    <td class="border border-gray-300 px-4 py-2">{{ eleve[1] }} {{ eleve[2] }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ eleve[5] }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ eleve[3] }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ eleve[4] }}</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <form action="{{ url_for('modifier_note', identifiant=eleve[0], trimestre=eleve[3]) }}" method="post" class="inline">
+                            <input type="number" name="note" min="0" max="20" required class="p-1 border rounded">
+                            <button type="submit" class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-700">
+                                Modifier
+                            </button>
+                        </form>
+                        
+                        <a href="{{ url_for('supprimer_note', identifiant=eleve[0], trimestre=eleve[3]) }}" 
+                           class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700">
+                            Supprimer
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Bouton de déconnexion -->
+    <div class="text-right mb-4">
+        <a href="{{ url_for('logout') }}" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700">
+            Déconnexion
+        </a>
+    </div>
+</body>
+</html>
