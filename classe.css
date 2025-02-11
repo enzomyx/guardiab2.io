@@ -1,0 +1,132 @@
+/* Style global */
+body {
+    background: #f7f9fc;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenu principal */
+.dashboard-content {
+    margin: 2rem 15rem;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #406ff3;
+    margin-bottom: 1.5rem;
+}
+
+/* Recherche et filtre */
+.class-search {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.class-search input,
+.class-search select {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.class-search button {
+    background: #406ff3;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.class-search button:hover {
+    background: #305bb3;
+}
+
+/* Liste des élèves */
+.class-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.class-list th, .class-list td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+
+.class-list th {
+    background: #406ff3;
+    color: white;
+    text-align: left;
+}
+
+.class-list .status.present {
+    color: green;
+    font-weight: bold;
+}
+
+.class-list .status.absent {
+    color: red;
+    font-weight: bold;
+}
+
+.class-list .status.en-retard {
+    color: orange;
+    font-weight: bold;
+}
+
+/* Ajout d'un élève */
+.class-add form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.class-add input {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.class-add button {
+    background: #28a745;
+    color: white;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.class-add button:hover {
+    background: #218838;
+}
+
+/* Boutons d'action */
+.message-btn {
+    background: #ffc107;
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.message-btn:hover {
+    background: #e0a800;
+}
+
+.remove-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
