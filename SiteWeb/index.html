@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon ENT - Accueil Élève</title>
+    <meta name="description" content="Plateforme ENT pour accéder à vos cours, devoirs, notes et annonces.">
+
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Police Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap">
+
+    <!-- Fichier CSS principal -->
+    <link rel="stylesheet" href="style/index.css?v=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+</head>
+<body>
+<!-- Barre de navigation -->
+<nav class="navbar" aria-label="Navigation principale">
+    <ul class="navbar__menu">
+        <li class="navbar__item">
+            <a href="#" class="navbar__link navbar__link--active" aria-label="Accueil" data-view="home">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="navbar__item">
+            <a href="emploidutemps.html" class="navbar__link" aria-label="Emplois du temps">
+                <i class="fas fa-calendar-check"></i>
+            </a>
+        </li>
+        <li class="navbar__item">
+            <a href="classe.html" class="navbar__link" aria-label="Classe">
+                <i class="fas fa-users"></i>
+            </a>
+        </li>
+        <li class="navbar__item">
+            <a href="#" class="navbar__link" aria-label="Projets">
+                <i class="fas fa-folder"></i>
+            </a>
+        </li>
+        <li class="navbar__item">
+            <a href="#" class="navbar__link" aria-label="Ressources">
+                <i class="fas fa-archive"></i>
+            </a>
+        </li>
+        <li class="navbar__item">
+            <a href="aide.html" class="navbar__link" aria-label="Aide">
+                <i class="fas fa-question-circle"></i>
+            </a>
+        </li>
+        <li class="navbar__item">
+            <a href="parametres.html" class="navbar__link" aria-label="Paramètres">
+                <i class="fas fa-cog"></i>
+            </a>
+        </li>
+        <li class="navbar__item">
+            <a href="#" id="darkModeToggle" class="navbar__link" aria-label="Mode sombre">
+                <i class="fas fa-moon"></i>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Contenu principal -->
+<main class="dashboard-content">
+    <div class="dashboard-grid">
+        <!-- Carte 1 -->
+        <div class="dashboard-card">
+            <h2><i class="fas fa-graduation-cap"></i> Notes récentes</h2>
+            <p>Mathématiques: 15/20</p>
+            <p>Français: 14/20</p>
+            <p>Histoire-Géo: 16/20</p>
+        </div>
+
+        <!-- Carte 2 -->
+        <div class="dashboard-card">
+            <h2><i class="fas fa-calendar-check"></i> Prochains contrôles</h2>
+            <p>Mathématiques - 15/12/2023</p>
+            <p>Anglais - 18/12/2023</p>
+            <p>Physique-Chimie - 20/12/2023</p>
+        </div>
+
+        <!-- Carte 3 -->
+        <div class="dashboard-card">
+            <h2><i class="fas fa-book"></i> Devoirs à faire</h2>
+            <p>Français - Dissertation pour le 14/12</p>
+            <p>SVT - Exercices p.45 pour le 16/12</p>
+            <p>Histoire - Révisions pour le 19/12</p>
+        </div>
+
+        <!-- Carte 4 -->
+        <div class="dashboard-card">
+            <h2><i class="fas fa-user-clock"></i> Absences/Retards</h2>
+            <p>Total absences: 2 heures</p>
+            <p>Total retards: 1</p>
+            <p>Dernière absence: 05/12/2023</p>
+        </div>
+
+        <!-- Carte 5 : Messagerie interne -->
+        <div class="dashboard-card">
+            <h2><i class="fas fa-envelope"></i> Messagerie</h2>
+            <p><a href="messagerie.html">Accéder à la messagerie</a></p>
+        </div>
+
+        <!-- Carte 6 : Annonces et événements -->
+        <div class="dashboard-card">
+            <h2><i class="fas fa-bullhorn"></i> Annonces & Événements</h2>
+            <p>Aucune annonce pour le moment.</p>
+            <p><a href="evenements.html">Voir les événements</a></p>
+        </div>
+
+        <!-- Carte 7 : Espace de stockage des fichiers -->
+        <div class="dashboard-card">
+            <h2><i class="fas fa-cloud"></i> Mes fichiers</h2>
+            <p><a href="fichiers.html">Gérer mes fichiers</a></p>
+        </div>
+    </div>
+</main>
+
+<script src="script/main.js"></script>
+</body>
+</html>
