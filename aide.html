@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aide - ENT</title>
+  <link rel="stylesheet" href="../static/css/aide.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap">
+</head>
+<body>
+<div id="left">
+  <!-- Barre de navigation -->
+  <nav class="navbar" aria-label="Navigation principale">
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="{{ url_for('nav') }}" class="navbar__link" aria-label="Accueil">
+          <i class="fas fa-home"></i>
+        </a>
+      </li>
+      <li class="navbar__item">
+        <a href="{{ url_for('timetable') }}" class="navbar__link" aria-label="Emplois du temps">
+          <i class="fas fa-calendar-check"></i>
+        </a>
+      </li>
+      <li class="navbar__item">
+        <a href="{{ url_for('mes_notes') }}" class="navbar__link" aria-label="Notes">
+          <i class="fas fa-folder"></i>
+        </a>
+      </li>
+      <li class="navbar__item">
+        <a href="#" class="navbar__link" aria-label="Devoirs">
+          <i class="fas fa-archive"></i>
+        </a>
+      </li>
+      <li class="navbar__item">
+        <a href="{{ url_for('aide') }}" class="navbar__link navbar__link--active" aria-label="Aide">
+          <i class="fas fa-question-circle"></i>
+        </a>
+      </li>
+      <li class="navbar__item">
+        <a href="{{ url_for('parametres') }}" class="navbar__link" aria-label="Paramètres">
+          <i class="fas fa-cog"></i>
+        </a>
+      </li>
+      <li class="navbar__item">
+        <a href="#" id="darkModeToggle" class="navbar__link" aria-label="Mode sombre">
+          <i class="fas fa-moon"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div id="right">
+<header>
+  <h1>Bienvenue sur la page d'aide de l'ENT</h1>
+</header>
+
+<main>
+  <section>
+    <h2>FAQ - Questions fréquentes</h2>
+    <div>
+      <h3>Comment me connecter ?</h3>
+      <p>Accédez à la page de connexion via <a href="connexion.html">Connexion</a>. Entrez votre identifiant et mot de passe fournis par l'administration.</p>
+
+      <h3>Je n'arrive pas à accéder à un cours, que faire ?</h3>
+      <p>Assurez-vous d'être inscrit au cours. Si le problème persiste, contactez votre professeur ou l'administration.</p>
+
+      <h3>Comment soumettre un devoir ?</h3>
+      <p>Rendez-vous dans la section "Devoirs" de votre tableau de bord étudiant, cliquez sur le devoir concerné, puis téléchargez votre fichier.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Guides pour les utilisateurs</h2>
+    <article>
+      <h3>Pour les Administrateurs</h3>
+      <p>Consultez la section <a href="admin_users.html">Gestion des utilisateurs</a> pour ajouter ou modifier des rôles.</p>
+    </article>
+
+    <article>
+      <h3>Pour les Professeurs</h3>
+      <p>Créez des cours et devoirs en visitant <a href="professor_courses.html">Mes cours</a>. Vous pouvez également suivre les progrès des élèves.</p>
+    </article>
+
+    <article>
+      <h3>Pour les Élèves</h3>
+      <p>Accédez à vos cours et devoirs depuis <a href="student_courses.html">Mes cours</a>. Consultez vos notes dans <a href="student_grades.html">Mes notes</a>.</p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Contact et support</h2>
+    <p>Si vous rencontrez des problèmes, veuillez contacter le support technique via notre <a href="contact.html">page de contact</a> ou envoyer un email à support@ent.fr.</p>
+  </section>
+</main>
+<div>
+<footer>
+  <p>&copy; 2025 ENT - Tous droits réservés.</p>
+
+</footer>
+
+
+  <script src="script/main.js"></script>
+</body>
+</html>

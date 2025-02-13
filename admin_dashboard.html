@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord - Admin</title>
+    <link rel="stylesheet" href="../static/css/admin_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap">
+</head>
+<body>
+<div id="left">
+    <!-- Barre de navigation -->
+    <nav class="navbar" aria-label="Navigation principale">
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a href="{{ url_for('admin_dashboard') }}" class="navbar__link navbar__link--active" aria-label="Accueil">
+                    <i class="fas fa-home"></i><span>Accueil</span>
+                </a>
+            </li>
+            <li class="navbar__item">
+                <a href="{{ url_for('admin_users') }}" class="navbar__link" aria-label="Utilisateurs">
+                    <i class="fas fa-users-cog"></i><span>Utilisateurs</span>
+                </a>
+            </li>
+            <li class="navbar__item">
+                <a href="{{ url_for('admin_settings') }}" class="navbar__link" aria-label="Paramètres">
+                    <i class="fas fa-cog"></i><span>Paramètres</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div id="right">
+    <header>
+        <h1>Bienvenue, Admin</h1>
+        <p>Voici un aperçu des activités et des statistiques du système.</p>
+    </header>
+
+    <main>
+        <section class="dashboard-grid">
+            <!-- Carte 1 -->
+            <div class="dashboard-card">
+                <h2><i class="fas fa-users"></i> Utilisateurs</h2>
+                <p>Total : 120</p>
+                <p>Admins : 5</p>
+                <p>Professeurs : 35</p>
+                <p>Élèves : 80</p>
+            </div>
+
+            <!-- Carte 2 -->
+            <div class="dashboard-card">
+                <h2><i class="fas fa-book"></i> Cours</h2>
+                <p>Total : 25</p>
+                <p>Cours actifs : 20</p>
+                <p>Cours archivés : 5</p>
+            </div>
+
+            <!-- Carte 3 -->
+            <div class="dashboard-card">
+                <h2><i class="fas fa-file-alt"></i> Devoirs</h2>
+                <p>Total : 150</p>
+                <p>Devoirs en attente : 30</p>
+                <p>Devoirs corrigés : 120</p>
+            </div>
+
+            <!-- Carte 4 -->
+            <div class="dashboard-card">
+                <h2><i class="fas fa-chart-line"></i> Statistiques</h2>
+                <p>Utilisateurs actifs ce mois-ci : 85%</p>
+                <p>Progrès moyen des élèves : 75%</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ENT - Tous droits réservés.</p>
+    </footer>
+</div>
+</body>
+</html>

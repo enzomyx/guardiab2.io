@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classe - Mon ENT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="stylesheet" href="../static/css/classe.css">
+  <link rel="icon" type="image/x-icon" href="../static/image/favicon.ico">
+</head>
+<body>
+
+<!-- Barre de navigation -->
+<nav class="navbar" aria-label="Navigation principale">
+  <ul class="navbar__menu">
+    <li class="navbar__item">
+      <a href="{{url_for('time_prof')}}" class="navbar__link" aria-label="Emplois du temps">
+        <i class="fas fa-calendar-check"></i>
+      </a>
+    </li>
+    <li class="navbar__item">
+      <a href="{{url_for('classe')}}" class="navbar__link navbar__link--active" aria-label="Classe">
+        <i class="fas fa-users"></i>
+      </a>
+    </li>
+    <li class="navbar__item">
+      <a href="{{url_for('tab_prof')}}" class="navbar__link" aria-label="Notes">
+        <i class="fas fa-folder"></i>
+      </a>
+    </li>
+    <li class="navbar__item">
+      <a href="{{ url_for('aide') }}" class="navbar__link" aria-label="Aide">
+        <i class="fas fa-question-circle"></i>
+      </a>
+    </li>
+    <li class="navbar__item">
+      <a href="{{ url_for('parametres') }}" class="navbar__link" aria-label="Paramètres">
+        <i class="fas fa-cog"></i>
+      </a>
+    </li>
+    <li class="navbar__item">
+      <a href="#" id="darkModeToggle" class="navbar__link" aria-label="Mode sombre">
+        <i class="fas fa-moon"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Contenu principal -->
+<main class="dashboard-content">
+  <h1>Gestion de la classe</h1>
+
+  <!-- Recherche et filtre -->
+  <section class="class-search">
+    <input type="text" id="searchStudent" placeholder="Rechercher un élève...">
+    <select id="filterStatus">
+      <option value="all">Tous les statuts</option>
+      <option value="present">Présent</option>
+      <option value="absent">Absent</option>
+      <option value="en-retard">En retard</option>
+    </select>
+    <button onclick="filterStudents()">Filtrer</button>
+  </section>
+
+  <!-- Liste des élèves -->
+  <section class="class-list">
+    <h2><i class="fas fa-user-graduate"></i> Liste des élèves</h2>
+    <h1>Liste des Étudiants</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Statut</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student[0] }}</td>
+            <td>{{ student[1] }}</td>
+            <td>{{ student[2] }}</td>
+            <td>{{ student[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+        <td class="status {{ student.status | lower }}" data-id="{{ student.id }}">{{ student.status }}</td>
+        <td>
+          <button class="message-btn">Message</button>
+          <button class="remove-btn" data-id="{{ student.id }}">Supprimer</button>
+
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Ajout d'un élève -->
+  <form id="addStudentForm">
+    <input type="text" id="newStudentName" placeholder="Nom de l'élève" required>
+    <input type="email" id="newStudentEmail" placeholder="Email" required>
+    <button type="submit">Ajouter</button>
+  </form>
+  
+
+</main>
+
+<script src="../static/js/main.js"></script>
+</body>
+</html>

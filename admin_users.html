@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des utilisateurs - Admin</title>
+  <link rel="stylesheet" href="../static/css/admin_users.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap">
+</head>
+<body>
+<div id="left">
+  <!-- Barre de navigation -->
+  <nav class="navbar" aria-label="Navigation principale">
+    <ul class="navbar__menu">
+        <li class="navbar__item">
+            <a href="{{ url_for('admin_dashboard') }}" class="navbar__link" aria-label="Accueil">
+                <i class="fas fa-home"></i><span>Accueil</span>
+            </a>
+        </li>
+        <li class="navbar__item">
+            <a href="{{ url_for('admin_users') }}" class="navbar__link navbar__link--active" aria-label="Utilisateurs">
+                <i class="fas fa-users-cog"></i><span>Utilisateurs</span>
+            </a>
+        </li>
+        <li class="navbar__item">
+            <a href="{{ url_for('admin_settings') }}" class="navbar__link" aria-label="Paramètres">
+                <i class="fas fa-cog"></i><span>Paramètres</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+</div>
+
+<div id="right">
+  <header>
+    <h1>Gestion des utilisateurs</h1>
+    <p>Ajoutez, modifiez ou supprimez des utilisateurs du système.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Ajouter un utilisateur</h2>
+      <form action="/add_user" method="POST">
+        <div>
+          <label for="username">Nom d'utilisateur :</label>
+          <input type="text" id="username" name="username" placeholder="Entrez un nom d'utilisateur" required>
+        </div>
+        <div>
+          <label for="email">Email :</label>
+          <input type="email" id="email" name="email" placeholder="Entrez une adresse email" required>
+        </div>
+        <div>
+          <label for="role">Rôle :</label>
+          <select id="role" name="role" required>
+            <option value="professeur">Professeur</option>
+            <option value="eleve">Élève</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <button type="submit">Ajouter</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Liste des utilisateurs</h2>
+      <table>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom d'utilisateur</th>
+          <th>Email</th>
+          <th>Rôle</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Exemple d'utilisateur -->
+        <tr>
+          <td>1</td>
+          <td>Jean Dupont</td>
+          <td>jean.dupont@example.com</td>
+          <td>Professeur</td>
+          <td>
+            <button class="edit">Modifier</button>
+            <button class="delete">Supprimer</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Marie Curie</td>
+          <td>marie.curie@example.com</td>
+          <td>Élève</td>
+          <td>
+            <button class="edit">Modifier</button>
+            <button class="delete">Supprimer</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ENT - Tous droits réservés.</p>
+  </footer>
+</div>
+</body>
+</html>
